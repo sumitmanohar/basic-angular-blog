@@ -1,0 +1,29 @@
+b<div class="container">
+    <div class="row">
+        <div *ngIf="currentBlog" class="col-12 paddingtop">
+<div class="card text-center">
+    <div class="card-header">
+            {{currentBlog.title | uppercase}}
+            <div *ngIf="currentBlog.tags.length>0">tags: <span *ngFor="let tag of currentBlog.tags;let first=first;let last=last">{{tag}}{{last ? '':', '}}</span></div>
+    </div>
+    <div class="card-body">
+      <p class="card-title">{{currentBlog.bodyHtml}}</p>
+      <p class="card-text ">{{currentBlog.description}}</p>
+    </div>
+    <footer class="blockquote-footer">posted by {{currentBlog.author}} on {{currentBlog.created | date}}</footer>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-4 col-12">
+  <button type="button" class="btn btn-primary" [routerLink]="['/edit',currentBlog.blogId]">Edit</button></div>
+  <div class="col-md-4 col-12">
+<button type="button" class="btn btn-danger" (click)="deleteBlog()">Delete</button>
+</div>
+<div class="col-md-4 col-12">
+<button type="button" class="btn btn-warning" (click)="goToPrvePage()" >Go Back</button>
+</div>
+</div>
+</div>
+  </div>
+</div>
+
+

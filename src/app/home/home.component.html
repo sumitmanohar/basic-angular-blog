@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let blog of allBlog" class="col-12 col-md-6 paddingtop">
+<div class="card text-center">
+  <div class="card-header">
+      {{blog.title}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{blog.bodyHtml}}</p>
+    <p class="card-text">{{blog.category}}</p>
+    <a [routerLink]="['/blog', blog.blogId]" class="btn btn-primary">Read</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
